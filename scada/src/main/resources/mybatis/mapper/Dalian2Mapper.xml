@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.siege.mapper.Dalian2Mapper" >
+    <resultMap id="BaseResultMap" type="com.siege.entity.Dalian2Entity" >
+      	<result column="ATD_102" property="ATD_102" jdbcType="FLOAT" />
+        <result column="ATD_101" property="ATD_101" jdbcType="FLOAT" />
+        <result column="COMPRESSOR_P" property="COMPRESSOR_P" jdbcType="FLOAT" />
+        <result column="HE109_T" property="HE109_T" jdbcType="FLOAT" />
+        <result column="CP10A_P" property="CP10A_P" jdbcType="FLOAT" />
+        <result column="ATD_104" property="ATD_104" jdbcType="FLOAT" />
+        <result column="CP10B_P" property="CP10B_P" jdbcType="FLOAT" />
+        <result column="ATD_105" property="ATD_105" jdbcType="FLOAT" />
+        <result column="CP10A_T" property="CP10A_T" jdbcType="FLOAT" />
+        <result column="CP10B_T" property="CP10B_T" jdbcType="FLOAT" />
+        <result column="T852_P" property="T852_P" jdbcType="FLOAT" />
+        <result column="T853_P" property="T853_P" jdbcType="FLOAT" />
+        <result column="ATD_103" property="ATD_103" jdbcType="FLOAT" />
+        <result column="AI016" property="AI016" jdbcType="FLOAT" />
+        <result column="AI014" property="AI014" jdbcType="FLOAT" />
+        <result column="AI013" property="AI013" jdbcType="FLOAT" />
+        <result column="AI011" property="AI011" jdbcType="FLOAT" />
+        <result column="AI015" property="AI015" jdbcType="FLOAT" />
+        <result column="AI05" property="AI05" jdbcType="FLOAT" />
+        <result column="AI29" property="AI29" jdbcType="FLOAT" />
+        <result column="AI30" property="AI30" jdbcType="FLOAT" />
+        <result column="AI08" property="AI08" jdbcType="FLOAT" />
+        <result column="AI028" property="AI028" jdbcType="FLOAT" />
+        <result column="ATD_106" property="ATD_106" jdbcType="FLOAT" />
+        <result column="AI01" property="AI01" jdbcType="FLOAT" />
+        <result column="AI020" property="AI020" jdbcType="FLOAT" />
+        <result column="SHARPTIME" property="sharpTime" jdbcType="VARCHAR" />
+        <result column="UPTIME" property="uptime" jdbcType="VARCHAR" />
+        <result column="D24_24" property="D24_24" jdbcType="TINYINT" />
+        <result column="D25_0" property="D25_0" jdbcType="TINYINT" />
+		<result column="D25_1" property="D25_1" jdbcType="TINYINT" />
+        <result column="D25_2" property="D25_2" jdbcType="TINYINT" />
+        <result column="D25_3" property="D25_3" jdbcType="TINYINT" />
+        <result column="D25_4" property="D25_4" jdbcType="TINYINT" />
+        <result column="D25_5" property="D25_5" jdbcType="TINYINT" />
+        <result column="D25_6" property="D25_6" jdbcType="TINYINT" />
+		<result column="D25_7" property="D25_7" jdbcType="TINYINT" />
+        <result column="D29_0" property="D29_0" jdbcType="TINYINT" />
+        <result column="D29_1" property="D29_1" jdbcType="TINYINT" />
+
+    </resultMap>
+    
+    <sql id="Base_Column_List" >
+        	HE109_T, CP10A_T,CP10B_T,AI014,AI013,
+            COMPRESSOR_P,CP10A_P,CP10B_P,T852_P,
+            T853_P,AI016,AI015,ATD_102,ATD_101,
+            ATD_104,ATD_105,ATD_103,ATD_106,
+            AI011,AI05,AI29,AI30,AI08,AI028,
+            AI01,AI020,SUBSTR(UPTIME,1,19) AS UPTIME 
+    </sql>
+
+    <select id="get" resultMap="BaseResultMap">
+       SELECT 
+       <include refid="Base_Column_List" />
+	   FROM tbl_data_anting WHERE UPTIME=(SELECT MAX(UPTIME) FROM TBL_DATA_ANTING)
+    </select>
+    
+    <select id="getCount"  resultType="int" >
+       select count(*)
+       FROM TBL_DATA_ANTING_HOUR 
+       WHERE 
+       SUBSTR(UPTIME,1,10) BETWEEN #{start_date} AND #{end_date} AND
+       SUBSTR(SHARPTIME,1,10) BETWEEN #{start_date} AND #{end_date} 
+       <if test="searchType=='hour'">
+       AND SUBSTR(SHARPTIME,15,2)='00'
+       </if>
+    </select>
+
+    <select id="getReport"  resultMap="BaseResultMap" >
+       select SUBSTR(UPTIME,1,19) AS UPTIME,
+       ROUND(ATD_102,3) AS ATD_102,
+       ROUND(ATD_101,3) AS ATD_101,
+       COMPRESSOR_P,
+       HE109_T,
+       CP10A_P,
+       ATD_104,CP10B_P,
+       ROUND(ATD_105,3) AS ATD_105,
+       CP10A_T,
+       CP10B_T,
+       T852_P, 
+       T853_P, 
+       ROUND(ATD_103,3) AS ATD_103,
+       AI016,
+       AI014,
+       AI013,
+       AI011,
+       ROUND(AI015,3) AS AI015,
+       ROUND(AI05,3)  AS AI05,
+       AI29,
+       AI30,
+       AI08,
+       AI028,
+       ROUND(ATD_106,3) AS ATD_106,
+       AI01,
+       AI020,
+       SUBSTR(SHARPTIME,1) AS SHARPTIME 
+       FROM TBL_DATA_ANTING_HOUR 
+       WHERE 
+       SUBSTR(UPTIME,1,10) BETWEEN #{start_date} AND #{end_date} AND
+       SUBSTR(SHARPTIME,1,10) BETWEEN #{start_date} AND #{end_date} 
+       <if test="searchType=='hour'">
+       AND SUBSTR(SHARPTIME,15,2)='00'
+       </if>
+       LIMIT #{currentPage},10
+    </select>
+    
+    
+
+</mapper>
