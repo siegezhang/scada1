@@ -1,279 +1,237 @@
 package com.siege.entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, 
+				getterVisibility = JsonAutoDetect.Visibility.NONE, 
+				setterVisibility = JsonAutoDetect.Visibility.NONE, 
+				creatorVisibility = JsonAutoDetect.Visibility.NONE)
 public class Dalian1Entity {
-	private float ATD_102;
-	private float ATD_101;
-	private float COMPRESSOR_P;
-	private float HE109_T;
-	private float CP10A_P;
-	private float ATD_104;
-	private float CP10B_P;
-	private float ATD_105;
-	private float CP10A_T;
-	private float CP10B_T;
-	private float T852_P;
-	private float T853_P;
-	private float ATD_103;
-	private float AI016;
-	private float AI014;
-	private float AI013;
-	private float AI011;
-	private float AI015;
-	private float AI05;
-	private float AI29;
-	private float AI30;
-	private float AI08;
-	private float AI028;
-	private float ATD_106;
-	private float AI01;
-	private float AI020;
-	private String uptime;
-	private String sharpTime;
-	private byte D24_24;
-	private byte D25_0;
-	private byte D25_1;
-	private byte D25_2;
-	private byte D25_3;
-	private byte D25_4;
-	private byte D25_5;
-	private byte D25_6;
-	private byte D25_7;
-	private byte D29_0;
-	private byte D29_1;
+	@JsonProperty("MH2") private float MH2;
+	@JsonProperty("AT") private float AT;
+	@JsonProperty("Pinst_MPa") private float Pinst_MPa;
+	@JsonProperty("Linst") private float Linst;
+	@JsonProperty("COSTH2") private float COSTH2;
+	@JsonProperty("AMH2") private float AMH2;
+	@JsonProperty("Pend_MPa") private float Pend_MPa;
+	@JsonProperty("P0_MPa") private float P0_MPa;
+	@JsonProperty("Ptarget_MPa") private float Ptarget_MPa;
+	@JsonProperty("Sjqj35") private float Sjqj35;
+	@JsonProperty("WRITEdispenssor") private float WRITEdispenssor;
+	@JsonProperty("AMH2_Calculation35") private float AMH2_Calculation35;
+	@JsonProperty("Pinst_bar") private float Pinst_bar;
+	@JsonProperty("Pend_bar") private float Pend_bar;
+	@JsonProperty("P0_bar") private float P0_bar;
+	@JsonProperty("Ptarget_bar") private float Ptarget_bar;
+	@JsonProperty("Pin450") private float Pin450;
+	@JsonProperty("Pout450") private float Pout450;
+	@JsonProperty("Tout450") private float Tout450;
+	@JsonProperty("Toil450") private float Toil450;
+	@JsonProperty("Pin450_bar") private float Pin450_bar;
+	@JsonProperty("Pout450_bar") private float Pout450_bar;
+	@JsonProperty("BY11") private float BY11;
+	@JsonProperty("BY12") private float BY12;
+	@JsonProperty("BY13") private float BY13;
+	@JsonProperty("Pin900") private float Pin900;
+	@JsonProperty("Pout900") private float Pout900;
+	@JsonProperty("Tout900") private float Tout900;
+	@JsonProperty("Toil900") private float Toil900;
+	@JsonProperty("Pin900_bar") private float Pin900_bar;
+	@JsonProperty("Pout900_bar") private float Pout900_bar;
+	@JsonProperty("SHARPTIME") private String SHARPTIME;
+	public float getMH2() {
+		return MH2;
+	}
+	public void setMH2(float mH2) {
+		MH2 = mH2;
+	}
+	public float getAT() {
+		return AT;
+	}
+	public void setAT(float aT) {
+		AT = aT;
+	}
+	public float getPinst_MPa() {
+		return Pinst_MPa;
+	}
+	public void setPinst_MPa(float pinst_MPa) {
+		Pinst_MPa = pinst_MPa;
+	}
+	public float getLinst() {
+		return Linst;
+	}
+	public void setLinst(float linst) {
+		Linst = linst;
+	}
+	public float getCOSTH2() {
+		return COSTH2;
+	}
+	public void setCOSTH2(float cOSTH2) {
+		COSTH2 = cOSTH2;
+	}
+	public float getAMH2() {
+		return AMH2;
+	}
+	public void setAMH2(float aMH2) {
+		AMH2 = aMH2;
+	}
+	public float getPend_MPa() {
+		return Pend_MPa;
+	}
+	public void setPend_MPa(float pend_MPa) {
+		Pend_MPa = pend_MPa;
+	}
+	public float getP0_MPa() {
+		return P0_MPa;
+	}
+	public void setP0_MPa(float p0_MPa) {
+		P0_MPa = p0_MPa;
+	}
+	public float getPtarget_MPa() {
+		return Ptarget_MPa;
+	}
+	public void setPtarget_MPa(float ptarget_MPa) {
+		Ptarget_MPa = ptarget_MPa;
+	}
+	public float getSjqj35() {
+		return Sjqj35;
+	}
+	public void setSjqj35(float sjqj35) {
+		Sjqj35 = sjqj35;
+	}
+	public float getWRITEdispenssor() {
+		return WRITEdispenssor;
+	}
+	public void setWRITEdispenssor(float wRITEdispenssor) {
+		WRITEdispenssor = wRITEdispenssor;
+	}
+	public float getAMH2_Calculation35() {
+		return AMH2_Calculation35;
+	}
+	public void setAMH2_Calculation35(float aMH2_Calculation35) {
+		AMH2_Calculation35 = aMH2_Calculation35;
+	}
+	public float getPinst_bar() {
+		return Pinst_bar;
+	}
+	public void setPinst_bar(float pinst_bar) {
+		Pinst_bar = pinst_bar;
+	}
+	public float getPend_bar() {
+		return Pend_bar;
+	}
+	public void setPend_bar(float pend_bar) {
+		Pend_bar = pend_bar;
+	}
+	public float getP0_bar() {
+		return P0_bar;
+	}
+	public void setP0_bar(float p0_bar) {
+		P0_bar = p0_bar;
+	}
+	public float getPtarget_bar() {
+		return Ptarget_bar;
+	}
+	public void setPtarget_bar(float ptarget_bar) {
+		Ptarget_bar = ptarget_bar;
+	}
+	public float getPin450() {
+		return Pin450;
+	}
+	public void setPin450(float pin450) {
+		Pin450 = pin450;
+	}
+	public float getPout450() {
+		return Pout450;
+	}
+	public void setPout450(float pout450) {
+		Pout450 = pout450;
+	}
+	public float getTout450() {
+		return Tout450;
+	}
+	public void setTout450(float tout450) {
+		Tout450 = tout450;
+	}
+	public float getToil450() {
+		return Toil450;
+	}
+	public void setToil450(float toil450) {
+		Toil450 = toil450;
+	}
+	public float getPin450_bar() {
+		return Pin450_bar;
+	}
+	public void setPin450_bar(float pin450_bar) {
+		Pin450_bar = pin450_bar;
+	}
+	public float getPout450_bar() {
+		return Pout450_bar;
+	}
+	public void setPout450_bar(float pout450_bar) {
+		Pout450_bar = pout450_bar;
+	}
+	public float getBY11() {
+		return BY11;
+	}
+	public void setBY11(float bY11) {
+		BY11 = bY11;
+	}
+	public float getBY12() {
+		return BY12;
+	}
+	public void setBY12(float bY12) {
+		BY12 = bY12;
+	}
+	public float getBY13() {
+		return BY13;
+	}
+	public void setBY13(float bY13) {
+		BY13 = bY13;
+	}
+	public float getPin900() {
+		return Pin900;
+	}
+	public void setPin900(float pin900) {
+		Pin900 = pin900;
+	}
+	public float getPout900() {
+		return Pout900;
+	}
+	public void setPout900(float pout900) {
+		Pout900 = pout900;
+	}
+	public float getTout900() {
+		return Tout900;
+	}
+	public void setTout900(float tout900) {
+		Tout900 = tout900;
+	}
+	public float getToil900() {
+		return Toil900;
+	}
+	public void setToil900(float toil900) {
+		Toil900 = toil900;
+	}
+	public float getPin900_bar() {
+		return Pin900_bar;
+	}
+	public void setPin900_bar(float pin900_bar) {
+		Pin900_bar = pin900_bar;
+	}
+	public float getPout900_bar() {
+		return Pout900_bar;
+	}
+	public void setPout900_bar(float pout900_bar) {
+		Pout900_bar = pout900_bar;
+	}
+	public String getSHARPTIME() {
+		return SHARPTIME;
+	}
+	public void setSHARPTIME(String sHARPTIME) {
+		SHARPTIME = sHARPTIME;
+	}
 	
-	public float getATD_102() {
-		return ATD_102;
-	}
-	public void setATD_102(float aTD_102) {
-		ATD_102 = aTD_102;
-	}
-	public float getATD_101() {
-		return ATD_101;
-	}
-	public void setATD_101(float aTD_101) {
-		ATD_101 = aTD_101;
-	}
-	public float getCOMPRESSOR_P() {
-		return COMPRESSOR_P;
-	}
-	public void setCOMPRESSOR_P(float cOMPRESSOR_P) {
-		COMPRESSOR_P = cOMPRESSOR_P;
-	}
-	public float getHE109_T() {
-		return HE109_T;
-	}
-	public void setHE109_T(float hE109_T) {
-		HE109_T = hE109_T;
-	}
-	public float getCP10A_P() {
-		return CP10A_P;
-	}
-	public void setCP10A_P(float cP10A_P) {
-		CP10A_P = cP10A_P;
-	}
-	public float getATD_104() {
-		return ATD_104;
-	}
-	public void setATD_104(float aTD_104) {
-		ATD_104 = aTD_104;
-	}
-	public float getCP10B_P() {
-		return CP10B_P;
-	}
-	public void setCP10B_P(float cP10B_P) {
-		CP10B_P = cP10B_P;
-	}
-	public float getATD_105() {
-		return ATD_105;
-	}
-	public void setATD_105(float aTD_105) {
-		ATD_105 = aTD_105;
-	}
-	public float getCP10A_T() {
-		return CP10A_T;
-	}
-	public void setCP10A_T(float cP10A_T) {
-		CP10A_T = cP10A_T;
-	}
-	public float getCP10B_T() {
-		return CP10B_T;
-	}
-	public void setCP10B_T(float cP10B_T) {
-		CP10B_T = cP10B_T;
-	}
-	public float getT852_P() {
-		return T852_P;
-	}
-	public void setT852_P(float t852_P) {
-		T852_P = t852_P;
-	}
-	public float getT853_P() {
-		return T853_P;
-	}
-	public void setT853_P(float t853_P) {
-		T853_P = t853_P;
-	}
-	public float getATD_103() {
-		return ATD_103;
-	}
-	public void setATD_103(float aTD_103) {
-		ATD_103 = aTD_103;
-	}
-	public float getAI016() {
-		return AI016;
-	}
-	public void setAI016(float aI016) {
-		AI016 = aI016;
-	}
-	public float getAI014() {
-		return AI014;
-	}
-	public void setAI014(float aI014) {
-		AI014 = aI014;
-	}
-	public float getAI013() {
-		return AI013;
-	}
-	public void setAI013(float aI013) {
-		AI013 = aI013;
-	}
-	public float getAI011() {
-		return AI011;
-	}
-	public void setAI011(float aI011) {
-		AI011 = aI011;
-	}
-	public float getAI015() {
-		return AI015;
-	}
-	public void setAI015(float aI015) {
-		AI015 = aI015;
-	}
-	public float getAI05() {
-		return AI05;
-	}
-	public void setAI05(float aI05) {
-		AI05 = aI05;
-	}
-	public float getAI29() {
-		return AI29;
-	}
-	public void setAI29(float aI29) {
-		AI29 = aI29;
-	}
-	public float getAI30() {
-		return AI30;
-	}
-	public void setAI30(float aI30) {
-		AI30 = aI30;
-	}
-	public float getAI08() {
-		return AI08;
-	}
-	public void setAI08(float aI08) {
-		AI08 = aI08;
-	}
-	public float getAI028() {
-		return AI028;
-	}
-	public void setAI028(float aI028) {
-		AI028 = aI028;
-	}
-	public float getATD_106() {
-		return ATD_106;
-	}
-	public void setATD_106(float aTD_106) {
-		ATD_106 = aTD_106;
-	}
-	public float getAI01() {
-		return AI01;
-	}
-	public void setAI01(float aI01) {
-		AI01 = aI01;
-	}
-	public float getAI020() {
-		return AI020;
-	}
-	public void setAI020(float aI020) {
-		AI020 = aI020;
-	}
-	public String getUptime() {
-		return uptime;
-	}
-	public void setUptime(String uptime) {
-		this.uptime = uptime;
-	}
-	public String getSharpTime() {
-		return sharpTime;
-	}
-	public void setSharpTime(String sharpTime) {
-		this.sharpTime = sharpTime;
-	}
-	public byte getD24_24() {
-		return D24_24;
-	}
-	public void setD24_24(byte d24_24) {
-		D24_24 = d24_24;
-	}
-	public byte getD25_0() {
-		return D25_0;
-	}
-	public void setD25_0(byte d25_0) {
-		D25_0 = d25_0;
-	}
-	public byte getD25_1() {
-		return D25_1;
-	}
-	public void setD25_1(byte d25_1) {
-		D25_1 = d25_1;
-	}
-	public byte getD25_2() {
-		return D25_2;
-	}
-	public void setD25_2(byte d25_2) {
-		D25_2 = d25_2;
-	}
-	public byte getD25_3() {
-		return D25_3;
-	}
-	public void setD25_3(byte d25_3) {
-		D25_3 = d25_3;
-	}
-	public byte getD25_4() {
-		return D25_4;
-	}
-	public void setD25_4(byte d25_4) {
-		D25_4 = d25_4;
-	}
-	public byte getD25_5() {
-		return D25_5;
-	}
-	public void setD25_5(byte d25_5) {
-		D25_5 = d25_5;
-	}
-	public byte getD25_6() {
-		return D25_6;
-	}
-	public void setD25_6(byte d25_6) {
-		D25_6 = d25_6;
-	}
-	public byte getD25_7() {
-		return D25_7;
-	}
-	public void setD25_7(byte d25_7) {
-		D25_7 = d25_7;
-	}
-	public byte getD29_0() {
-		return D29_0;
-	}
-	public void setD29_0(byte d29_0) {
-		D29_0 = d29_0;
-	}
-	public byte getD29_1() {
-		return D29_1;
-	}
-	public void setD29_1(byte d29_1) {
-		D29_1 = d29_1;
-	}
 	
 }

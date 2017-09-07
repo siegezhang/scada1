@@ -1,45 +1,52 @@
 package com.siege.entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonAutoDetect(fieldVisibility=  JsonAutoDetect.Visibility.ANY, 
+getterVisibility= JsonAutoDetect.Visibility.NONE,
+setterVisibility= JsonAutoDetect.Visibility.NONE, 
+creatorVisibility=JsonAutoDetect.Visibility.NONE)
 public class AntingEntity {
-	private float ATD_102;
-	private float ATD_101;
-	private float COMPRESSOR_P;
-	private float HE109_T;
-	private float CP10A_P;
-	private float ATD_104;
-	private float CP10B_P;
-	private float ATD_105;
-	private float CP10A_T;
-	private float CP10B_T;
-	private float T852_P;
-	private float T853_P;
-	private float ATD_103;
-	private float AI016;
-	private float AI014;
-	private float AI013;
-	private float AI011;
-	private float AI015;
-	private float AI05;
-	private float AI29;
-	private float AI30;
-	private float AI08;
-	private float AI028;
-	private float ATD_106;
-	private float AI01;
-	private float AI020;
-	private String uptime;
-	private String sharpTime;
-	private byte D24_24;
-	private byte D25_0;
-	private byte D25_1;
-	private byte D25_2;
-	private byte D25_3;
-	private byte D25_4;
-	private byte D25_5;
-	private byte D25_6;
-	private byte D25_7;
-	private byte D29_0;
-	private byte D29_1;
+	@JsonProperty("ATD_102")private float ATD_102;
+	@JsonProperty("ATD_101")private float ATD_101;
+	@JsonProperty("COMPRESSOR_P")private float COMPRESSOR_P;
+	@JsonProperty("HE109_T")private float HE109_T;
+	@JsonProperty("CP10A_P")private float CP10A_P;
+	@JsonProperty("ATD_104")private float ATD_104;
+	@JsonProperty("CP10B_P")private float CP10B_P;
+	@JsonProperty("ATD_105")private float ATD_105;
+	@JsonProperty("CP10A_T")private float CP10A_T;
+	@JsonProperty("CP10B_T")private float CP10B_T;
+	@JsonProperty("T852_P")private float T852_P;
+	@JsonProperty("T853_P")private float T853_P;
+	@JsonProperty("ATD_103")private float ATD_103;
+	@JsonProperty("AI016")private float AI016;
+	@JsonProperty("AI014")private float AI014;
+	@JsonProperty("AI013")private float AI013;
+	@JsonProperty("AI011")private float AI011;
+	@JsonProperty("AI015")private float AI015;
+	@JsonProperty("AI05")private float AI05;
+	@JsonProperty("AI29")private float AI29;
+	@JsonProperty("AI30")private float AI30;
+	@JsonProperty("AI08")private float AI08;
+	@JsonProperty("AI028")private float AI028;
+	@JsonProperty("ATD_106")private float ATD_106;
+	@JsonProperty("AI01")private float AI01;
+	@JsonProperty("AI020")private float AI020;
+	@JsonProperty("uptime")private String uptime;
+	@JsonProperty("sharpTime")private String sharpTime;
+	@JsonProperty("D24_24")private byte D24_24;
+	@JsonProperty("D25_0")private byte D25_0;
+	@JsonProperty("D25_1")private byte D25_1;
+	@JsonProperty("D25_2")private byte D25_2;
+	@JsonProperty("D25_3")private byte D25_3;
+	@JsonProperty("D25_4")private byte D25_4;
+	@JsonProperty("D25_5")private byte D25_5;
+	@JsonProperty("D25_6")private byte D25_6;
+	@JsonProperty("D25_7")private byte D25_7;
+	@JsonProperty("D29_0")private byte D29_0;
+	@JsonProperty("D29_1")private byte D29_1;
 	
 	public float getATD_102() {
 		return ATD_102;
