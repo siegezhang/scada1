@@ -1,44 +1,43 @@
 package com.siege.entity;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-
-@JsonAutoDetect(fieldVisibility=  JsonAutoDetect.Visibility.ANY, 
-				getterVisibility= JsonAutoDetect.Visibility.NONE,
-				setterVisibility= JsonAutoDetect.Visibility.NONE, 
-				creatorVisibility=JsonAutoDetect.Visibility.NONE)
 public class YunfuEntity {
-	@JsonProperty("MH2_A") private float MH2_A;
-	@JsonProperty("AT_A")private float AT_A;
-	@JsonProperty("Plinest_A")private float Plinest_A;
-	@JsonProperty("Llinest_A")private float Llinest_A;
-	@JsonProperty("PRISE_A")private float PRISE_A;
-	@JsonProperty("ALLMH2_A")private float ALLMH2_A;
-	@JsonProperty("Pend_A")private float Pend_A;
-	@JsonProperty("P0_A")private float P0_A;
-	@JsonProperty("Ptarget_A")private float Ptarget_A;
-	@JsonProperty("MH2_B")private float MH2_B;
-	@JsonProperty("AT_B")private float AT_B;
-	@JsonProperty("")private float Plinest_B;
-	@JsonProperty("Llinest_B")private float Llinest_B;
-	@JsonProperty("PRISE_B")private float PRISE_B;
-	@JsonProperty("ALLMH2_B")private float ALLMH2_B;
-	@JsonProperty("Pend_B")private float Pend_B;
-	@JsonProperty("P0_B")private float P0_B;
-	@JsonProperty("Ptarget_B")private float Ptarget_B;
-	@JsonProperty("Pout_H2_1_1")private float Pout_H2_1_1;
-	@JsonProperty("Pin_H2_1_1")private float Pin_H2_1_1;
-	@JsonProperty("Tout_H2_1_1")private float Tout_H2_1_1;
-	@JsonProperty("Pout_H2_2_1")private float Pout_H2_2_1;
-	@JsonProperty("Pin_H2_2_1")private float Pin_H2_2_1;
-	@JsonProperty("Tout_H2_2_1")private float Tout_H2_2_1;
-	@JsonProperty("P_H_tank_2_1")private float P_H_tank_2_1;
-	@JsonProperty("P_M_TANK_2_1")private float P_M_TANK_2_1;
-	@JsonProperty("P_L_TANK_2_1")private float P_L_TANK_2_1;
-	@JsonProperty("uptime")private String uptime;
+	 private float MH2_A;
+	private float AT_A;
+	private float Plinest_A;
+	private float Llinest_A;
+	private float PRISE_A;
+	private float ALLMH2_A;
+	private float Pend_A;
+	private float P0_A;
+	private float Ptarget_A;
+	private float MH2_B;
+	private float AT_B;
+	private float Plinest_B;
+	private float Llinest_B;
+	private float PRISE_B;
+	private float ALLMH2_B;
+	private float Pend_B;
+	private float P0_B;
+	private float Ptarget_B;
+	private float Pout_H2_1_1;
+	private float Pin_H2_1_1;
+	private float Tout_H2_1_1;
+	private float Pout_H2_2_1;
+	private float Pin_H2_2_1;
+	private float Tout_H2_2_1;
+	private float P_H_tank_2_1;
+	private float P_M_TANK_2_1;
+	private float P_L_TANK_2_1;
+	private String uptime;
+	private String SHARPTIME;
 	
 	 
+	public String getSHARPTIME() {
+		return SHARPTIME;
+	}
+	public void setSHARPTIME(String sHARPTIME) {
+		SHARPTIME = sHARPTIME;
+	}
 	public float getMH2_A() {
 		return MH2_A;
 	}

@@ -2,92 +2,101 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-  
-  
-  <groupId>com.siege</groupId>
-  <artifactId>scada</artifactId>
-  <packaging>war</packaging>
-  <version>1-SNAPSHOT</version>
-  <name>scada Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  
-  <parent>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-parent</artifactId>
-	<version>1.4.1.RELEASE</version>
-	<relativePath/> <!-- lookup parent from repository -->
-  </parent>
-  
-  <properties>
+
+
+	<groupId>com.siege</groupId>
+	<artifactId>scada</artifactId>
+	<packaging>war</packaging>
+	<version>1-SNAPSHOT</version>
+	<name>scada Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.1.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-  </properties>
+	</properties>
 
-  <dependencies>
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-test</artifactId>
-		<scope>test</scope>
-	</dependency>
-	<dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-	<dependency>
-		<groupId>org.mybatis.spring.boot</groupId>
-		<artifactId>mybatis-spring-boot-starter</artifactId>
-		<version>1.1.1</version>
-	</dependency>
-	<dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-devtools</artifactId>
-        <optional>true</optional>
-	</dependency>
-	<dependency>
-		<groupId>mysql</groupId>
-		<artifactId>mysql-connector-java</artifactId>
-	</dependency>
-	<dependency>
-	    <groupId>net.sf.json-lib</groupId>
-	    <artifactId>json-lib-ext-spring</artifactId>
-	    <version>1.0.2</version>
- 	</dependency>
-</dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib-ext-spring</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.14-beta1</version>
+		</dependency>
+	</dependencies>
 
-  <build>
-	  <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <excludes>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<excludes>
 					<exclude>bootstrap-test.properties</exclude>
-                    <exclude>bootstrap-dev.properties</exclude>
-                    <exclude>bootstrap-pro.properties</exclude>
-                    <exclude>bootstrap.properties</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>bootstrap-${env}.properties</include>
-                    <include>bootstrap.properties</include>
-                </includes>
-            </resource>
-        </resources>
+					<exclude>bootstrap-dev.properties</exclude>
+					<exclude>bootstrap-pro.properties</exclude>
+					<exclude>bootstrap.properties</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>bootstrap-${env}.properties</include>
+					<include>bootstrap.properties</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-	                <fork>true</fork>
-	            </configuration>
+					<fork>true</fork>
+				</configuration>
 			</plugin>
 		</plugins>
-    <finalName>scada</finalName>
+		<finalName>scada</finalName>
 	</build>
 </project>

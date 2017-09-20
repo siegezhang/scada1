@@ -1,46 +1,39 @@
 package com.siege.entity;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, 
-				getterVisibility = JsonAutoDetect.Visibility.NONE, 
-				setterVisibility = JsonAutoDetect.Visibility.NONE, 
-				creatorVisibility = JsonAutoDetect.Visibility.NONE)
 public class Dalian2Entity {
-	@JsonProperty("PI02_1_AI") private float PI02_1_AI;
-	@JsonProperty("PI02_2_AI") private float PI02_2_AI;
-	@JsonProperty("PI02_3_AI") private float PI02_3_AI;
-	@JsonProperty("PI01_1_AI") private float PI01_1_AI;
-	@JsonProperty("MF01_1_AI") private float MF01_1_AI;
-	@JsonProperty("MF01_3_AI") private float MF01_3_AI;
-	@JsonProperty("MF01_2_DI") private float MF01_2_DI;
-	@JsonProperty("TT01_1_AI") private float TT01_1_AI;
-	@JsonProperty("ER3000_PS_MPa") private float ER3000_PS_MPa;
-	@JsonProperty("VECH_P") private float VECH_P;
-	@JsonProperty("VECH_T") private float VECH_T;
-	@JsonProperty("VECH_V") private float VECH_V;
-	@JsonProperty("P_L") private float P_L;
-	@JsonProperty("P_H") private float P_H;
-	@JsonProperty("T_H") private float T_H;
-	@JsonProperty("ALLMESS_H2") private float ALLMESS_H2;
-	@JsonProperty("Ptarget") private float Ptarget;
-	@JsonProperty("Ptaaget_in") private float Ptaaget_in;
-	@JsonProperty("Pend_VECH") private float Pend_VECH;
-	@JsonProperty("Count_1s") private float Count_1s;
-	@JsonProperty("APPR") private float APPR;
-	@JsonProperty("P0station") private float P0station;
-	@JsonProperty("APPR_NOW") private float APPR_NOW;
-	@JsonProperty("P0vech") private float P0vech;
-	@JsonProperty("ER3000_PS_bar") private float ER3000_PS_bar;
-	@JsonProperty("PPL") private float PPL;
-	@JsonProperty("PPM") private float PPM;
-	@JsonProperty("PPH") private float PPH;
-	@JsonProperty("IWO_V") private float IWO_V;
-	@JsonProperty("IW0_P") private float IW0_P;
-	@JsonProperty("IW2_T") private float IW2_T;
-	@JsonProperty("L0_H") private float L0_H;
-	@JsonProperty("Pend_STATION") private float Pend_STATION;
+	 private float PI02_1_AI;
+	 private float PI02_2_AI;
+	 private float PI02_3_AI;
+	 private float PI01_1_AI;
+	 private float MF01_1_AI;
+	 private float MF01_3_AI;
+	 private float MF01_2_DI;
+	 private float TT01_1_AI;
+	 private float ER3000_PS_MPa;
+	 private float VECH_P;
+	 private float VECH_T;
+	 private float VECH_V;
+	 private float P_L;
+	 private float P_H;
+	 private float T_H;
+	 private float ALLMESS_H2;
+	 private float Ptarget;
+	 private float Ptaaget_in;
+	 private float Pend_VECH;
+	 private float Count_1s;
+	 private float APPR;
+	 private float P0station;
+	 private float APPR_NOW;
+	 private float P0vech;
+	 private float ER3000_PS_bar;
+	 private float PPL;
+	 private float PPM;
+	 private float PPH;
+	 private float IWO_V;
+	 private float IW0_P;
+	 private float IW2_T;
+	 private float L0_H;
+	 private float Pend_STATION;
 	public float getPI02_1_AI() {
 		return PI02_1_AI;
 	}
