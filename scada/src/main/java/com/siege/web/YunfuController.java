@@ -4,15 +4,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
+import com.siege.constant.ExcelConstant;
 import com.siege.entity.YunfuEntity;
 import com.siege.mapper.YunfuMapper;
-
-import net.sf.json.JSONObject;
+import com.siege.util.ExcelUtil;
 
 
 @RestController
@@ -20,19 +23,20 @@ import net.sf.json.JSONObject;
 public class YunfuController {
 	@Autowired
 	private YunfuMapper yunfuMapper;
+	Gson gson = new Gson();
 	
 	
 	@RequestMapping("/data")
-	public JSONObject get() {
+	public String get() {
 		YunfuEntity yunfuEntity=yunfuMapper.get();
 		Map<String, Object> map=new HashMap<>();
 		map.put("success", true);
 		map.put("data", yunfuEntity);
-		return JSONObject.fromObject(map);
+		return gson.toJson(map);
 	}
 	
 	@RequestMapping("/reportData")
-	public JSONObject getReport(@RequestParam("currentPage") int currentPage,
+	public String getReport(@RequestParam("currentPage") int currentPage,
 								  @RequestParam("start_date") String start_date,
 								  @RequestParam("end_date")String end_date,
 								  @RequestParam("searchType")String searchType) {
@@ -42,7 +46,13 @@ public class YunfuController {
 		Map<String, Object> map=new HashMap<>();
 		map.put("success", true);
 		map.put("data", list);
-		map.put("pageCount", count);
-		return JSONObject.fromObject(map);
+		map.put("pageCount", Math.ceil((double) count / 10));
+		return gson.toJson(map);
+	}
+	@RequestMapping("/downloadExcel")
+	public void downloadExcel(@RequestParam("start_date") String start_date, @RequestParam("end_date") String end_date, @RequestParam("searchType") String searchType, HttpServletResponse response) {
+		List<Map<String, Object>> list = yunfuMapper.getExcelReport(start_date, end_date, searchType);
+		String fileName = "云浮站数据报表" + start_date.replaceAll("-", "") + "-" + end_date.replaceAll("-", "") + ".xls";
+		ExcelUtil.produceExcel(fileName, response, list, ExcelConstant.YUNFU_TITLE, ExcelConstant.YUNFU_FIELD);
 	}
 }

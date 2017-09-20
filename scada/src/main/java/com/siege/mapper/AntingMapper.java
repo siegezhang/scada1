@@ -1,6 +1,7 @@
 package com.siege.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -13,4 +14,5 @@ public interface AntingMapper {
 	//获取报表数据
 	List<AntingEntity> getReport(@Param("currentPage") int currentPage, @Param("start_date")String start_date, @Param("end_date")String end_date, @Param("searchType") String searchType);
 	int getCount(@Param("start_date")String start_date, @Param("end_date")String end_date, @Param("searchType") String searchType);
+	List<Map<String,Object>> getExcelReport(@Param("start_date")String start_date, @Param("end_date")String end_date, @Param("searchType")String searchType);
 }

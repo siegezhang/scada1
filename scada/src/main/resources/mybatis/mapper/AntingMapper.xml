@@ -28,7 +28,7 @@
         <result column="ATD_106" property="ATD_106" jdbcType="FLOAT" />
         <result column="AI01" property="AI01" jdbcType="FLOAT" />
         <result column="AI020" property="AI020" jdbcType="FLOAT" />
-        <result column="SHARPTIME" property="sharpTime" jdbcType="VARCHAR" />
+        <result column="SHARPTIME" property="SHARPTIME" jdbcType="VARCHAR" />
         <result column="UPTIME" property="uptime" jdbcType="VARCHAR" />
         <result column="D24_24" property="D24_24" jdbcType="TINYINT" />
         <result column="D25_0" property="D25_0" jdbcType="TINYINT" />
@@ -100,12 +100,49 @@
        SUBSTR(SHARPTIME,1) AS SHARPTIME 
        FROM TBL_DATA_ANTING_HOUR 
        WHERE 
-       SUBSTR(UPTIME,1,10) BETWEEN #{start_date} AND #{end_date} AND
+       <!-- SUBSTR(UPTIME,1,10) BETWEEN #{start_date} AND #{end_date} AND -->
        SUBSTR(SHARPTIME,1,10) BETWEEN #{start_date} AND #{end_date} 
        <if test="searchType=='hour'">
        AND SUBSTR(SHARPTIME,15,2)='00'
        </if>
        LIMIT #{currentPage},10
+    </select>
+    
+     <select id="getExcelReport" resultType="java.util.HashMap" >
+       select SUBSTR(UPTIME,1,19) AS UPTIME,
+       ROUND(ATD_102,3) AS ATD_102,
+       ROUND(ATD_101,3) AS ATD_101,
+       COMPRESSOR_P,
+       HE109_T,
+       CP10A_P,
+       ATD_104,CP10B_P,
+       ROUND(ATD_105,3) AS ATD_105,
+       CP10A_T,
+       CP10B_T,
+       T852_P, 
+       T853_P, 
+       ROUND(ATD_103,3) AS ATD_103,
+       AI016,
+       AI014,
+       AI013,
+       AI011,
+       ROUND(AI015,3) AS AI015,
+       ROUND(AI05,3)  AS AI05,
+       AI29,
+       AI30,
+       AI08,
+       AI028,
+       ROUND(ATD_106,3) AS ATD_106,
+       AI01,
+       AI020,
+       SUBSTR(SHARPTIME,1) AS SHARPTIME 
+       FROM TBL_DATA_ANTING_HOUR 
+       WHERE 
+       SUBSTR(UPTIME,1,10) BETWEEN #{start_date} AND #{end_date} AND
+       SUBSTR(SHARPTIME,1,10) BETWEEN #{start_date} AND #{end_date} 
+       <if test="searchType=='hour'">
+       AND SUBSTR(SHARPTIME,15,2)='00'
+       </if> 
     </select>
     
     
