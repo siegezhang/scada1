@@ -50,7 +50,24 @@ public class UserController {
 	public void login(@RequestParam("username") String username, @RequestParam("password") String password, HttpServletResponse response) throws IOException {
 		System.out.println(username);
 		System.out.println(password);
-		if ("atjqz".equals(username) && "000000".equals(password))
+		if ("atjqz".equals(username) && "000000".equals(password)||"admin".equals(username) && "000000".equals(password))
 			response.sendRedirect("/html/anting.html");
+		else if("yfjqz".equals(username) && "000000".equals(password))
+			response.sendRedirect("/html/yunfu.html");
+	}
+	
+	@RequestMapping(value = "/getMenu")
+	public String getMenu(@RequestParam("username") String username, @RequestParam(value="password", required=false) String password) throws IOException {
+		System.out.println(username);
+		System.out.println(password);
+		if ("admin".equals(username))
+			return "[{\"id\":0,\"station\":\"安亭站\",\"dataurl\":\"anting.html\",\"reporturl\":\"report_anting.html\"},"+
+			       "{\"id\":1,\"station\":\"云浮站\",\"dataurl\":\"yunfu.html\", \"reporturl\":\"report_yunfu.html\"}]";
+		else if("atjqz".equals(username))
+			return "[{\"id\":0,\"station\":\"安亭站\",\"dataurl\":\"anting.html\",\"reporturl\":\"report_anting.html\"}]";
+		else if("yfjqz".equals(username))
+			return "[{\"id\":1,\"station\":\"云浮站\",\"dataurl\":\"yunfu.html\", \"reporturl\":\"report_yunfu.html\"}]";
+		else 
+			return null;
 	}
 }
