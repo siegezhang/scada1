@@ -45,12 +45,32 @@
     </resultMap>
     
     <sql id="Base_Column_List" >
-        	HE109_T, CP10A_T,CP10B_T,AI014,AI013,
-            COMPRESSOR_P,CP10A_P,CP10B_P,T852_P,
-            T853_P,AI016,AI015,ATD_102,ATD_101,
-            ATD_104,ATD_105,ATD_103,ATD_106,
-            AI011,AI05,AI29,AI30,AI08,AI028,
-            AI01,AI020,SUBSTR(UPTIME,1,19) AS UPTIME 
+        	HE109_T, 
+        	CP10A_T,
+        	CP10B_T,
+        	ROUND(AI014,2) AS AI014,
+        	ROUND(AI013,2) AS AI013,
+            COMPRESSOR_P,
+            CP10A_P,
+            CP10B_P,
+            T852_P,
+            T853_P,
+            AI016,
+            ROUND(AI015,0) AS AI015,
+            ROUND(ATD_102,3) AS ATD_102,
+            ROUND(ATD_101,3) AS ATD_101,
+            ROUND(ATD_104,3) AS ATD_104,
+            ROUND(ATD_105,3) AS ATD_105,
+            ROUND(ATD_103,3) AS ATD_103,
+            ROUND(AI011,2) AS AI011,
+            AI05,
+            AI29,
+            AI30,
+            AI08,
+            AI028,
+            AI01,
+            AI020,
+            SUBSTR(UPTIME,1,19) AS UPTIME 
     </sql>
 
     <select id="get" resultMap="BaseResultMap">
@@ -86,7 +106,7 @@
        ROUND(ATD_103,3) AS ATD_103,
        AI016,
        AI014,
-       AI013,
+       ROUND(AI013,3) AS AI013,
        AI011,
        ROUND(AI015,3) AS AI015,
        ROUND(AI05,3)  AS AI05,

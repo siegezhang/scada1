@@ -28,20 +28,47 @@
 		<result column="Tout_H2_2_1" property="Tout_H2_2_1" jdbcType="FLOAT" />
 		<result column="P_H_tank_2_1" property="P_H_tank_2_1" jdbcType="FLOAT" />
 		<result column="P_M_TANK_2_1" property="P_M_TANK_2_1" jdbcType="FLOAT" />
+		<result column="xielou1" property="xielou1" jdbcType="FLOAT" />
+		<result column="xielou2" property="xielou2" jdbcType="FLOAT" />
+		<result column="xielou3" property="xielou3" jdbcType="FLOAT" />
+		<result column="xielou4" property="xielou4" jdbcType="FLOAT" />
 		<result column="P_L_TANK_2_1" property="P_L_TANK_2_1" jdbcType="VARCHAR" />
 		<result column="UPTIME" property="uptime" jdbcType="VARCHAR" />
 		<result column="SHARPTIME" property="SHARPTIME" jdbcType="VARCHAR" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		MH2_A,AT_A,Plinest_A,Llinest_A,PRISE_A,
-		ALLMH2_A,Pend_A,P0_A,Ptarget_A,MH2_B,
-		AT_B,Plinest_B,Llinest_B,PRISE_B,
-		ALLMH2_B,Pend_B,P0_B,Ptarget_B,
-		Pout_H2_1_1,Pin_H2_1_1,Tout_H2_1_1,
-		Pout_H2_2_1,Pin_H2_2_1,Tout_H2_2_1,
-		P_H_tank_2_1,P_M_TANK_2_1,
-		P_L_TANK_2_1,SUBSTR(UPTIME,1,19) AS UPTIME
+		MH2_A,
+		AT_A,
+		ROUND(Plinest_A,2) AS Plinest_A,
+		ROUND(Llinest_A,2) AS Llinest_A,
+		PRISE_A,
+		ALLMH2_A,
+		Pend_A,P0_A,
+		Ptarget_A,
+		MH2_B,
+		AT_B,
+		ROUND(Plinest_B,2) AS Plinest_B,
+		ROUND(Llinest_B,2) AS Llinest_B,
+		PRISE_B,
+		ALLMH2_B,
+		Pend_B,
+		P0_B,
+		Ptarget_B,
+		ROUND(Pout_H2_1_1,2) AS Pout_H2_1_1,
+		ROUND(Pin_H2_1_1,2) AS Pin_H2_1_1,
+		ROUND(Tout_H2_1_1,2) AS Tout_H2_1_1,
+		ROUND(Pout_H2_2_1,2) AS Pout_H2_2_1,
+		ROUND(Pin_H2_2_1,2) AS Pin_H2_2_1,
+		ROUND(Tout_H2_2_1,2) AS Tout_H2_2_1,
+		ROUND(P_H_tank_2_1,2) AS P_H_tank_2_1,
+		P_M_TANK_2_1,
+		ROUND(P_L_TANK_2_1,2) AS P_L_TANK_2_1,
+		ROUND(xielou1,3) AS xielou1,
+		ROUND(xielou2,3) AS xielou2,
+		ROUND(xielou3,3) AS xielou3,
+		ROUND(xielou4,3) AS xielou4,
+		SUBSTR(UPTIME,1,19) AS UPTIME
 	</sql>
 
 	<select id="get" resultMap="BaseResultMap">

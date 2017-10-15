@@ -28,6 +28,10 @@ public class YunfuEntity {
 	private float P_H_tank_2_1;
 	private float P_M_TANK_2_1;
 	private float P_L_TANK_2_1;
+	private float xielou1;
+	private float xielou2;
+	private float xielou3;
+	private float xielou4;
 	private String uptime;
 	private String SHARPTIME;
 	
@@ -205,6 +209,30 @@ public class YunfuEntity {
 	}
 	public void setUptime(String uptime) {
 		this.uptime = uptime;
+	}
+	public float getXielou1() {
+		return xielou1;
+	}
+	public void setXielou1(float xielou1) {
+		this.xielou1 = xielou1;
+	}
+	public float getXielou2() {
+		return xielou2;
+	}
+	public void setXielou2(float xielou2) {
+		this.xielou2 = xielou2;
+	}
+	public float getXielou3() {
+		return xielou3;
+	}
+	public void setXielou3(float xielou3) {
+		this.xielou3 = xielou3;
+	}
+	public float getXielou4() {
+		return xielou4;
+	}
+	public void setXielou4(float xielou4) {
+		this.xielou4 = xielou4;
 	}
 	
 }
