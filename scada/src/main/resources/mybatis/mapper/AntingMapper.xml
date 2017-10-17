@@ -55,7 +55,7 @@
             CP10B_P,
             T852_P,
             T853_P,
-            AI016,
+            ROUND(AI016,2) AS AI016,
             ROUND(AI015,0) AS AI015,
             ROUND(ATD_102,3) AS ATD_102,
             ROUND(ATD_101,3) AS ATD_101,
@@ -63,13 +63,13 @@
             ROUND(ATD_105,3) AS ATD_105,
             ROUND(ATD_103,3) AS ATD_103,
             ROUND(AI011,2) AS AI011,
-            AI05,
+            ROUND(AI05,2) AS AI05,
             AI29,
             AI30,
-            AI08,
-            AI028,
-            AI01,
-            AI020,
+            ROUND(AI08,2) AS AI08,
+            ROUND(AI028,2) AS AI028,
+            ROUND(AI01,2) AS AI01,
+            ROUND(AI020,2) AS AI020,
             SUBSTR(UPTIME,1,19) AS UPTIME 
     </sql>
 
