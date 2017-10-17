@@ -70,6 +70,17 @@
             ROUND(AI028,2) AS AI028,
             ROUND(AI01,2) AS AI01,
             ROUND(AI020,2) AS AI020,
+            D24_24,
+			D25_0,
+			D25_1,
+			D25_2,
+			D25_3,
+			D25_4,
+			D25_5,
+			D25_6,
+			D25_7,
+			D29_0,
+			D29_1,
             SUBSTR(UPTIME,1,19) AS UPTIME 
     </sql>
 
