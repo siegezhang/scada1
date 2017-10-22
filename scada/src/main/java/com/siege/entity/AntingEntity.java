@@ -39,6 +39,24 @@ public class AntingEntity {
 	private byte D25_6;
 	private byte D25_7;
 	private byte D29_0;
+	private byte D27_36;
+	private byte D27_76;
+
+	public byte getD27_36() {
+		return D27_36;
+	}
+
+	public void setD27_36(byte d27_36) {
+		D27_36 = d27_36;
+	}
+
+	public byte getD27_76() {
+		return D27_76;
+	}
+
+	public void setD27_76(byte d27_76) {
+		D27_76 = d27_76;
+	}
 
 	public String getSHARPTIME() {
 		return SHARPTIME;

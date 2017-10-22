@@ -41,6 +41,8 @@
 		<result column="D25_7" property="D25_7" jdbcType="TINYINT" />
         <result column="D29_0" property="D29_0" jdbcType="TINYINT" />
         <result column="D29_1" property="D29_1" jdbcType="TINYINT" />
+        <result column="D27_36" property="D27_36" jdbcType="TINYINT" />
+        <result column="D27_76" property="D27_76" jdbcType="TINYINT" />
 
     </resultMap>
     
@@ -81,6 +83,8 @@
 			D25_7,
 			D29_0,
 			D29_1,
+			D27_36,
+			D27_76,
             SUBSTR(UPTIME,1,19) AS UPTIME 
     </sql>
 

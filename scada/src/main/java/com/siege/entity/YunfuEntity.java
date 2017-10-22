@@ -32,6 +32,13 @@ public class YunfuEntity {
 	private float xielou2;
 	private float xielou3;
 	private float xielou4;
+	private int D3_51;
+	private int D7_36;
+	private int D7_78;
+	private int D8_37;
+	private int D8_39;
+	private int D8_40;
+
 	private String uptime;
 	private String SHARPTIME;
 	
@@ -233,6 +240,42 @@ public class YunfuEntity {
 	}
 	public void setXielou4(float xielou4) {
 		this.xielou4 = xielou4;
+	}
+	public int getD3_51() {
+		return D3_51;
+	}
+	public void setD3_51(int d3_51) {
+		D3_51 = d3_51;
+	}
+	public int getD7_36() {
+		return D7_36;
+	}
+	public void setD7_36(int d7_36) {
+		D7_36 = d7_36;
+	}
+	public int getD7_78() {
+		return D7_78;
+	}
+	public void setD7_78(int d7_78) {
+		D7_78 = d7_78;
+	}
+	public int getD8_37() {
+		return D8_37;
+	}
+	public void setD8_37(int d8_37) {
+		D8_37 = d8_37;
+	}
+	public int getD8_39() {
+		return D8_39;
+	}
+	public void setD8_39(int d8_39) {
+		D8_39 = d8_39;
+	}
+	public int getD8_40() {
+		return D8_40;
+	}
+	public void setD8_40(int d8_40) {
+		D8_40 = d8_40;
 	}
 	
 }

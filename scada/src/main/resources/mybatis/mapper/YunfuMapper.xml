@@ -32,6 +32,12 @@
 		<result column="xielou2" property="xielou2" jdbcType="FLOAT" />
 		<result column="xielou3" property="xielou3" jdbcType="FLOAT" />
 		<result column="xielou4" property="xielou4" jdbcType="FLOAT" />
+		<result column="D3_51" property="D3_51" jdbcType="TINYINT" />
+		<result column="D7_36" property="D7_36" jdbcType="TINYINT" />
+		<result column="D7_78" property="D7_78" jdbcType="TINYINT" />
+		<result column="D8_37" property="D8_37" jdbcType="TINYINT" />
+		<result column="D8_39" property="D8_39" jdbcType="TINYINT" />
+		<result column="D8_40" property="D8_40" jdbcType="TINYINT" />
 		<result column="P_L_TANK_2_1" property="P_L_TANK_2_1" jdbcType="VARCHAR" />
 		<result column="UPTIME" property="uptime" jdbcType="VARCHAR" />
 		<result column="SHARPTIME" property="SHARPTIME" jdbcType="VARCHAR" />
@@ -68,6 +74,12 @@
 		ROUND(xielou2,3) AS xielou2,
 		ROUND(xielou3,3) AS xielou3,
 		ROUND(xielou4,3) AS xielou4,
+		D3_51,
+		D7_36,
+		D7_78,
+		D8_37,
+		D8_39,
+		D8_40,
 		SUBSTR(UPTIME,1,19) AS UPTIME
 	</sql>
 
