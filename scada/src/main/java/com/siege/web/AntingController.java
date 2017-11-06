@@ -32,6 +32,14 @@ public class AntingController {
 		map.put("data", antingEntity);
 		return gson.toJson(map);
 	}
+	@RequestMapping("/data_m")
+	public String get1(@RequestParam("callback") String callback) {
+		AntingEntity antingEntity = antingMapper.get();
+		Map<String, Object> map = new HashMap<>();
+		map.put("success", true);
+		map.put("data", antingEntity);
+		return callback+"("+gson.toJson(map)+")";
+	}
 
 	@RequestMapping("/reportData")
 	public String getReport(@RequestParam("currentPage") int currentPage, @RequestParam("start_date") String start_date, @RequestParam("end_date") String end_date, @RequestParam("searchType") String searchType) {

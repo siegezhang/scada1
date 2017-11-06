@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.siege.constant.ExcelConstant;
+import com.siege.entity.AntingEntity;
 import com.siege.entity.YunfuEntity;
 import com.siege.mapper.YunfuMapper;
 import com.siege.util.ExcelUtil;
@@ -33,6 +34,15 @@ public class YunfuController {
 		map.put("success", true);
 		map.put("data", yunfuEntity);
 		return gson.toJson(map);
+	}
+	
+	@RequestMapping("/data_m")
+	public String get1(@RequestParam("callback") String callback) {
+		YunfuEntity yunfuEntity=yunfuMapper.get();
+		Map<String, Object> map=new HashMap<>();
+		map.put("success", true);
+		map.put("data", yunfuEntity);
+		return callback+"("+gson.toJson(map)+")";
 	}
 	
 	@RequestMapping("/reportData")
