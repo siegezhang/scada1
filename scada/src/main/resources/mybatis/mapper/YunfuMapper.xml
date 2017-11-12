@@ -175,7 +175,11 @@
 			AND SUBSTR(SHARPTIME,15,2)='00'
 		</if>
 	</select>
-
+<select id="amount" resultType="java.util.HashMap">
+	select 'anting' as station,type,sum(amount) as amount from tbl_anting_amount group by type
+	union 
+	select 'yunfu' as station,type,sum(amount) as amount from tbl_yunfu_amount group by type
+</select>
 
 
 </mapper>

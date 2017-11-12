@@ -65,4 +65,12 @@ public class YunfuController {
 		String fileName = "云浮站数据报表" + start_date.replaceAll("-", "") + "-" + end_date.replaceAll("-", "") + ".xls";
 		ExcelUtil.produceExcel(fileName, response, list, ExcelConstant.YUNFU_TITLE, ExcelConstant.YUNFU_FIELD);
 	}
+	@RequestMapping("/amount")
+	public String  amount(){
+		List<HashMap<String, Object>> listmap=yunfuMapper.amount();
+		String antingA=String.valueOf(listmap.get(0).get("amount"));
+		String yunfuA=String.valueOf(listmap.get(1).get("amount"));
+		String yunfuB=String.valueOf(listmap.get(2).get("amount"));
+		return "{\"data\":{\"anting\":["+antingA+",0"+"],\"yunfu\":["+yunfuA+","+yunfuB+"]}}";
+	}
 }

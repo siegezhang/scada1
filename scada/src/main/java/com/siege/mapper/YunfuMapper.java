@@ -1,5 +1,6 @@
 package com.siege.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,4 +16,5 @@ public interface YunfuMapper {
 	List<YunfuEntity> getReport(@Param("currentPage") int currentPage, @Param("start_date")String start_date, @Param("end_date")String end_date, @Param("searchType") String searchType);
 	int getCount(@Param("start_date")String start_date, @Param("end_date")String end_date, @Param("searchType") String searchType);
 	List<Map<String, Object>> getExcelReport(@Param("start_date")String start_date, @Param("end_date")String end_date, @Param("searchType")String searchType);
+	List<HashMap<String, Object>> amount();
 }
