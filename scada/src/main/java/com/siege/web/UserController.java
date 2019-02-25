@@ -61,13 +61,16 @@ public class UserController {
 		System.out.println(username);
 		System.out.println(password);
 		if ("admin".equals(username))
-			return "[{\"id\":0,\"station\":\"安亭站\",\"dataurl\":\"anting.html\",\"reporturl\":\"report_anting.html\"},"+
-			       "{\"id\":1,\"station\":\"云浮站\",\"dataurl\":\"yunfu.html\", \"reporturl\":\"report_yunfu.html\"}]";
+			return "[{\"id\":0,\"station\":\"安亭站\",\"dataurl\":\"anting.html\",\"reporturl\":\"report_anting.html\",\"amounturl\":\"amount_anting.html\"},"+
+			       "{\"id\":1,\"station\":\"云浮站\",\"dataurl\":\"yunfu.html\", \"reporturl\":\"report_yunfu.html\",\"amounturl\":\"amount_yunfu.html\"},"+
+					"{\"id\":2,\"station\":\"大连站\",\"dataurl\":\"dalian1.html\", \"reporturl\":\"report_dalian1.html\",\"amounturl\":\"dalian1_yunfu.html\"}]";
 		else if("atjqz".equals(username))
-			return "[{\"id\":0,\"station\":\"安亭站\",\"dataurl\":\"anting.html\",\"reporturl\":\"report_anting.html\"}]";
+			return "[{\"id\":0,\"station\":\"安亭站\",\"dataurl\":\"anting.html\",\"reporturl\":\"report_anting.html\",\"amounturl\":\"amount_anting.html\"}]";
 		else if("yfjqz".equals(username))
-			return "[{\"id\":1,\"station\":\"云浮站\",\"dataurl\":\"yunfu.html\", \"reporturl\":\"report_yunfu.html\"}]";
-		else 
+			return "[{\"id\":1,\"station\":\"云浮站\",\"dataurl\":\"yunfu.html\", \"reporturl\":\"report_yunfu.html\",\"amounturl\":\"amount_yunfu.html\"}]";
+		else if("dljqz".equals(username))
+			return "[{\"id\":2,\"station\":\"大连站\",\"dataurl\":\"dalian1.html\", \"reporturl\":\"report_dalian1.html\",\"amounturl\":\"amount_dalian1.html\"}]";
+		else
 			return null;
 	}
 }

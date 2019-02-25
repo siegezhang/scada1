@@ -32,7 +32,7 @@ public class Dalian1Entity {
 	private float Toil900;
 	private float Pin900_bar;
 	private float Pout900_bar;
-	private String SHARPTIME;
+	private String UPTIME;
 
 	public float getMH2() {
 		return MH2;
@@ -282,11 +282,11 @@ public class Dalian1Entity {
 		Pout900_bar = pout900_bar;
 	}
 
-	public String getSHARPTIME() {
-		return SHARPTIME;
+	public String getUPTIME() {
+		return UPTIME;
 	}
 
-	public void setSHARPTIME(String sHARPTIME) {
-		SHARPTIME = sHARPTIME;
+	public void setUPTIME(String UPTIME) {
+		this.UPTIME = UPTIME;
 	}
 }

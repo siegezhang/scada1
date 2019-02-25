@@ -22,7 +22,7 @@ public class Dalian1Controller {
 
 	@RequestMapping("/data")
 	public String get() {
-		AntingEntity antingEntity = dalian1Mapper.get();
+		Dalian1Entity antingEntity = dalian1Mapper.get();
 		Map<String, Object> map = new HashMap<>();
 		map.put("success", true);
 		map.put("data", antingEntity);
