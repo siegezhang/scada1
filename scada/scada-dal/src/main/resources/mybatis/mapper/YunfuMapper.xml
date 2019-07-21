@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.siege.mapper.YunfuMapper">
+    <resultMap id="BaseResultMap" type="com.siege.entity.YunfuEntity">
+        <result column="MH2_A" property="MH2_A" jdbcType="FLOAT"/>
+        <result column="AT_A" property="AT_A" jdbcType="FLOAT"/>
+        <result column="Plinest_A" property="Plinest_A" jdbcType="FLOAT"/>
+        <result column="Llinest_A" property="Llinest_A" jdbcType="FLOAT"/>
+        <result column="PRISE_A" property="PRISE_A" jdbcType="FLOAT"/>
+        <result column="ALLMH2_A" property="ALLMH2_A" jdbcType="FLOAT"/>
+        <result column="Pend_A" property="Pend_A" jdbcType="FLOAT"/>
+        <result column="P0_A" property="P0_A" jdbcType="FLOAT"/>
+        <result column="Ptarget_A" property="Ptarget_A" jdbcType="FLOAT"/>
+        <result column="MH2_B" property="MH2_B" jdbcType="FLOAT"/>
+        <result column="AT_B" property="AT_B" jdbcType="FLOAT"/>
+        <result column="Plinest_B" property="Plinest_B" jdbcType="FLOAT"/>
+        <result column="Llinest_B" property="Llinest_B" jdbcType="FLOAT"/>
+        <result column="PRISE_B" property="PRISE_B" jdbcType="FLOAT"/>
+        <result column="ALLMH2_B" property="ALLMH2_B" jdbcType="FLOAT"/>
+        <result column="Pend_B" property="Pend_B" jdbcType="FLOAT"/>
+        <result column="P0_B" property="P0_B" jdbcType="FLOAT"/>
+        <result column="Ptarget_B" property="Ptarget_B" jdbcType="FLOAT"/>
+        <result column="Pout_H2_1_1" property="Pout_H2_1_1" jdbcType="FLOAT"/>
+        <result column="Pin_H2_1_1" property="Pin_H2_1_1" jdbcType="FLOAT"/>
+        <result column="Tout_H2_1_1" property="Tout_H2_1_1" jdbcType="FLOAT"/>
+        <result column="Pout_H2_2_1" property="Pout_H2_2_1" jdbcType="FLOAT"/>
+        <result column="Pin_H2_2_1" property="Pin_H2_2_1" jdbcType="FLOAT"/>
+        <result column="Tout_H2_2_1" property="Tout_H2_2_1" jdbcType="FLOAT"/>
+        <result column="P_H_tank_2_1" property="P_H_tank_2_1" jdbcType="FLOAT"/>
+        <result column="P_M_TANK_2_1" property="P_M_TANK_2_1" jdbcType="FLOAT"/>
+        <result column="xielou1" property="xielou1" jdbcType="FLOAT"/>
+        <result column="xielou2" property="xielou2" jdbcType="FLOAT"/>
+        <result column="xielou3" property="xielou3" jdbcType="FLOAT"/>
+        <result column="xielou4" property="xielou4" jdbcType="FLOAT"/>
+        <result column="D3_51" property="D3_51" jdbcType="TINYINT"/>
+        <result column="D7_36" property="D7_36" jdbcType="TINYINT"/>
+        <result column="D7_78" property="D7_78" jdbcType="TINYINT"/>
+        <result column="D8_37" property="D8_37" jdbcType="TINYINT"/>
+        <result column="D8_39" property="D8_39" jdbcType="TINYINT"/>
+        <result column="D8_40" property="D8_40" jdbcType="TINYINT"/>
+        <result column="P_L_TANK_2_1" property="P_L_TANK_2_1" jdbcType="VARCHAR"/>
+        <result column="UPTIME" property="uptime" jdbcType="VARCHAR"/>
+        <result column="SHARPTIME" property="SHARPTIME" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        MH2_A,
+        AT_A,
+        ROUND(Plinest_A,2) AS Plinest_A,
+        ROUND(Llinest_A,2) AS Llinest_A,
+        PRISE_A,
+        ALLMH2_A,
+        Pend_A,P0_A,
+        Ptarget_A,
+        MH2_B,
+        AT_B,
+        ROUND(Plinest_B,2) AS Plinest_B,
+        ROUND(Llinest_B,2) AS Llinest_B,
+        PRISE_B,
+        ALLMH2_B,
+        Pend_B,
+        P0_B,
+        Ptarget_B,
+        ROUND(Pout_H2_1_1,2) AS Pout_H2_1_1,
+        ROUND(Pin_H2_1_1,2) AS Pin_H2_1_1,
+        ROUND(Tout_H2_1_1,2) AS Tout_H2_1_1,
+        ROUND(Pout_H2_2_1,2) AS Pout_H2_2_1,
+        ROUND(Pin_H2_2_1,2) AS Pin_H2_2_1,
+        ROUND(Tout_H2_2_1,2) AS Tout_H2_2_1,
+        ROUND(P_H_tank_2_1,2) AS P_H_tank_2_1,
+        P_M_TANK_2_1,
+        ROUND(P_L_TANK_2_1,2) AS P_L_TANK_2_1,
+        ROUND(xielou1,3) AS xielou1,
+        ROUND(xielou2,3) AS xielou2,
+        ROUND(xielou3,3) AS xielou3,
+        ROUND(xielou4,3) AS xielou4,
+        D3_51,
+        D7_36,
+        D7_78,
+        D8_37,
+        D8_39,
+        D8_40,
+        SUBSTR(UPTIME,1,19) AS UPTIME
+    </sql>
+
+    <select id="get" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM TBL_DATA_YUNFU WHERE UPTIME=(SELECT MAX(UPTIME) FROM
+        TBL_DATA_YUNFU)
+    </select>
+
+    <select id="getCount" resultType="int">
+        select count(*)
+        FROM TBL_DATA_YUNFU_HOUR
+        WHERE
+        SUBSTR(SHARPTIME,1,10) BETWEEN #{start_date} AND #{end_date}
+        <if test="searchType=='hour'">
+            AND SUBSTR(SHARPTIME,15,2)='00'
+        </if>
+    </select>
+
+    <select id="getReport" resultMap="BaseResultMap">
+        SELECT
+        MH2_A,
+        AT_A,
+        Plinest_A,
+        Llinest_A,
+        PRISE_A,
+        ALLMH2_A,
+        Pend_A,
+        P0_A,
+        Ptarget_A,
+        MH2_B,
+        AT_B,
+        Plinest_B,
+        Llinest_B,
+        PRISE_B,
+        ALLMH2_B,
+        Pend_B,
+        P0_B,
+        Ptarget_B,
+        Pout_H2_1_1,
+        Pin_H2_1_1,
+        Tout_H2_1_1,
+        Pout_H2_2_1,
+        Pin_H2_2_1,
+        Tout_H2_2_1,
+        P_H_tank_2_1,
+        P_M_TANK_2_1,
+        P_L_TANK_2_1,
+        SUBSTR(SHARPTIME,1) AS SHARPTIME
+        FROM TBL_DATA_YUNFU_HOUR
+        WHERE
+        SUBSTR(SHARPTIME,1,10) BETWEEN #{start_date} AND #{end_date}
+        <if test="searchType=='hour'">
+            AND SUBSTR(SHARPTIME,15,2)='00'
+        </if>
+        LIMIT #{currentPage},10
+    </select>
+    <select id="getExcelReport" resultType="java.util.HashMap">
+        SELECT
+        MH2_A,
+        AT_A,
+        Plinest_A,
+        Llinest_A,
+        PRISE_A,
+        ALLMH2_A,
+        Pend_A,
+        P0_A,
+        Ptarget_A,
+        MH2_B,
+        AT_B,
+        Plinest_B,
+        Llinest_B,
+        PRISE_B,
+        ALLMH2_B,
+        Pend_B,
+        P0_B,
+        Ptarget_B,
+        Pout_H2_1_1,
+        Pin_H2_1_1,
+        Tout_H2_1_1,
+        Pout_H2_2_1,
+        Pin_H2_2_1,
+        Tout_H2_2_1,
+        P_H_tank_2_1,
+        P_M_TANK_2_1,
+        P_L_TANK_2_1,
+        SUBSTR(SHARPTIME,1) AS SHARPTIME
+        FROM TBL_DATA_YUNFU_HOUR
+        WHERE
+        SUBSTR(SHARPTIME,1,10) BETWEEN #{start_date} AND #{end_date}
+        <if test="searchType=='hour'">
+            AND SUBSTR(SHARPTIME,15,2)='00'
+        </if>
+    </select>
+    <select id="amount" resultType="java.util.HashMap">
+        select 'anting' as station,type,sum(amount) as amount from tbl_anting_amount group by type
+        union
+        select 'yunfu' as station,type,sum(amount) as amount from tbl_yunfu_amount group by type
+    </select>
+
+
+</mapper>

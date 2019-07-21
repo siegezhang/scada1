@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.siege.mapper.Dalian1Mapper">
+    <resultMap id="BaseResultMap" type="com.siege.entity.Dalian1Entity">
+        <result column="MH2" property="MH2" jdbcType="FLOAT"/>
+        <result column="AT" property="AT" jdbcType="FLOAT"/>
+        <result column="Pinst_MPa" property="Pinst_MPa" jdbcType="FLOAT"/>
+        <result column="Linst" property="Linst" jdbcType="FLOAT"/>
+        <result column="COSTH2" property="COSTH2" jdbcType="FLOAT"/>
+        <result column="AMH2" property="AMH2" jdbcType="FLOAT"/>
+        <result column="Pend_MPa" property="Pend_MPa" jdbcType="FLOAT"/>
+        <result column="P0_MPa" property="P0_MPa" jdbcType="FLOAT"/>
+        <result column="Ptarget_MPa" property="Ptarget_MPa" jdbcType="FLOAT"/>
+        <result column="Sjqj35" property="Sjqj35" jdbcType="FLOAT"/>
+        <result column="WRITEdispenssor" property="WRITEdispenssor" jdbcType="FLOAT"/>
+        <result column="AMH2_Calculation35" property="AMH2_Calculation35" jdbcType="FLOAT"/>
+        <result column="Pinst_bar" property="Pinst_bar" jdbcType="FLOAT"/>
+        <result column="Pend_bar" property="Pend_bar" jdbcType="FLOAT"/>
+        <result column="P0_bar" property="P0_bar" jdbcType="FLOAT"/>
+        <result column="Ptarget_bar" property="Ptarget_bar" jdbcType="FLOAT"/>
+        <result column="Pin450" property="Pin450" jdbcType="FLOAT"/>
+        <result column="Pout450" property="Pout450" jdbcType="FLOAT"/>
+        <result column="Tout450" property="Tout450" jdbcType="FLOAT"/>
+        <result column="Toil450" property="Toil450" jdbcType="FLOAT"/>
+        <result column="Pin450_bar" property="Pin450_bar" jdbcType="FLOAT"/>
+        <result column="Pout450_bar" property="Pout450_bar" jdbcType="FLOAT"/>
+        <result column="BY11" property="BY11" jdbcType="FLOAT"/>
+        <result column="BY12" property="BY12" jdbcType="FLOAT"/>
+        <result column="BY13" property="BY13" jdbcType="FLOAT"/>
+        <result column="Pin900" property="Pin900" jdbcType="FLOAT"/>
+        <result column="Pout900" property="Pout900" jdbcType="FLOAT"/>
+        <result column="Tout900" property="Tout900" jdbcType="FLOAT"/>
+        <result column="Toil900" property="Toil900" jdbcType="FLOAT"/>
+        <result column="Pin900_bar" property="Pin900_bar" jdbcType="FLOAT"/>
+        <result column="Pout900_bar" property="Pout900_bar" jdbcType="FLOAT"/>
+        <result column="UPTIME" property="UPTIME" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        MH2, AT, Pinst_MPa, Linst, COSTH2,
+        AMH2, Pend_MPa, P0_MPa, Ptarget_MPa, Sjqj35,
+        WRITEdispenssor, AMH2_Calculation35, Pinst_bar,
+        Pend_bar, P0_bar, Ptarget_bar,
+        Pin450, Pout450, Tout450,
+        Toil450, Pin450_bar, Pout450_bar,
+        BY11, BY12, BY13, Pin900, Pout900,
+        Tout900, Toil900, Pin900_bar,
+        Pout900_bar,
+        SUBSTR(UPTIME,1,19) AS UPTIME
+    </sql>
+
+    <select id="get" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM tbl_data_dalian1 WHERE UPTIME=(SELECT MAX(UPTIME) FROM tbl_data_dalian1)
+    </select>
+
+    <select id="getCount" resultType="int">
+        select count(*)
+        FROM tbl_data_dalian1_hour
+        WHERE
+        SUBSTR(SHARPTIME,1,10) BETWEEN #{start_date} AND #{end_date}
+        <if test="searchType=='hour'">
+            AND SUBSTR(SHARPTIME,15,2)='00'
+        </if>
+    </select>
+
+    <select id="getReport" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM tbl_data_dalian1_hour
+        WHERE
+        SUBSTR(SHARPTIME,1,10) BETWEEN #{start_date} AND #{end_date}
+        <if test="searchType=='hour'">
+            AND SUBSTR(SHARPTIME,15,2)='00'
+        </if>
+        LIMIT #{currentPage},10
+    </select>
+
+
+</mapper>
